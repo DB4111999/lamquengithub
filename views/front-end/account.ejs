@@ -1,0 +1,267 @@
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <% include ../partials/head %>
+      <style>
+     button{
+         background-color: #ED1D24;
+         border: none;
+         color: #fff;
+         padding: 10px 15px;
+         width: 100%;
+
+     }
+     a {
+         font-weight: 600;
+         
+     }
+  
+      </style>
+  </head>
+  <body>
+      <div class="header">
+          <% include ../partials/header %>
+      </div>
+      <div class="profile pt-2">
+        <div class="container">
+            <div class="textheadrlogin">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="index.html">Trang chủ</a><span><i class="fa fa-angle-right"
+                                aria-hidden="true"></i></span><label for="">Tài khoản của tôi</label>
+                    </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-5">
+                            <%if (messageSucc != "undefined") { %>
+                                <div
+                                  class="error"
+                                  style="background-color: #ffffff; font-weight: bold; color :rgb(0,255,127)"
+                                >
+                                  <h3 class="text-center""><%= messageSucc %></h3>
+                                </div>
+                                <% } %>
+                                <%if (messageError != "undefined") { %>
+                                  <div
+                                    class="error"
+                                    style="background-color: #ffffff; font-weight: bold; color :rgb(255,0,0)"
+                                  >
+                                    <%= messageError %>
+                                  </div>
+                                  <% } %>
+                                </div>
+                                <div class="col-md-4">
+                            <div class="text-right">
+    
+                                    <h5>TÀI KHOẢN CỦA TÔI</h5>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container mt-3">
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#home">THÔNG TIN CÁ NHÂN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#menu1">LỊCH SỬ MUA HÀNG</a>
+                        </li>
+
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div id="home" class="container tab-pane active"><br>
+
+                            
+                                <% if (user.google){ %>
+                                    <div class="row pt-3">
+                                        <div class="col-md-2">
+                                            <div class="img-profile"><img src="uploads/user/<%=user.images%>" alt="" width="220px" height="300px"></div>
+        
+        
+                                        </div>
+                                    <div class="col-md-6 ">
+                                    <h1>Tài Khoản gmail</h1>
+                                    <h3><span class="fa fa-user"></span><%=user.google.name%></h3>
+                                  <p>
+                                
+                                      <strong>id</strong>: <%= user.google.id %><br>
+                                      <strong>email</strong>: <%= user.google.email %><br>
+                                  </p>
+                                    </div>
+                                  
+                                    <% } else if (user.facebook){ %>
+                                        <div class="row pt-3">
+                                            <div class="col-md-2">
+                                                <div class="img-profile"><img src="uploads/user/<%=user.images%>" alt="" width="220px" height="300px"></div>
+            
+            
+                                            </div>
+                                        <div class="col-md-6 ">
+                                      <h1>Tài Khoản Facebook</h1>
+                                      <h3>
+                                          <span class="fa fa-user"></span><%=user.facebook.name%></h3>
+                                      <p>
+                                          <strong>id</strong>: <%= user.facebook.id %><br>
+                                          <strong>email</strong>: <%= user.facebook.email %><br>
+                                      </div>
+                
+                                    <% } else { %>
+                                        <div class="row pt-3">
+                                            <div class="col-md-2">
+                                                <div class="img-profile"><img src="uploads/user/<%=user.images%>" alt="" width="220px" height="300px"></div>
+            
+            
+                                            </div>
+                                            <div class="col-md-6 ">
+                                                <div class="text-proflie" style="line-height: 40px;">
+                                                    <div>Tên Đăng Nhập: <label for=""> <%= user.username%></label></div>
+                                                    <div> Họ Và Tên: <label for=""><%= user.fullname%></label></div>
+                                                    <div> Số Điện Thoại: <label for=""><%= user.phoneNumber%></label></div>
+                                                    <div> Email: <label for=""> <%= user.email %></label></div>
+                                                    <div> Địa Chỉ: <label for=""><%= user.address %></label></div>
+                                                </div>
+            
+                                            </div>
+                                        <% } %>
+                                <div class="col-md-4 pt-5 text-center">
+                                 <% if(user.PhanQuyen === '313131313131313131313131' ) {%>
+                                            <div class="pt-3"> <a href="/admin/all"><button>ĐẾN TRANG ADMIN</button></a></div>
+                                    <div class="pt-3"> <a href="/change-password"><button>ĐỔI MẬT KHẨU</button></a></div>
+                                    <div class="pt-3"> <a href="/AccountChange"><button>CẬP NHẬT THÔNG TIN</button></a></div>
+                                        <% }else {%>
+                                            <div class="pt-3"> <a href="/change-password"><button>ĐỔI MẬT KHẨU</button></a></div>
+                                            <div class="pt-3"> <a href="/AccountChange"><button>CẬP NHẬT THÔNG TIN</button></a></div>
+                                        <% } %>
+                                </div>  
+                            </div>
+                        </div>
+                        <div id="menu1" class="container tab-pane fade"><br>
+                            <div class="container">
+                                <% var id = 0 %>
+                                <% order.forEach(function(o){ id ++  %>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Đơn Hàng</th>
+                                            <th>Ngày</th>
+                                            <th>Địa Chỉ</th>
+                                            <th>SĐT</th>
+                                            <th>Tổng</th>
+                                            <th>Số Lượng</th>
+                                            <th>Đơn Mua</th>
+                                            <th>Thao tác</th>
+                                            <th></th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody >
+                                      
+                                        <tr>
+                                            <td><%= id %></td>
+                                            <td><%= o.date %></td>
+                                            <td><%= o.address %></td>
+                                            <td><%= o.phoneNumber %></td>
+                                            <td><%= o.cart.totalPrice %> VNĐ</td>
+                                            <td><%= o.cart.totalQty %> sản phẩm </td>
+                                            <% if(o.trangthai == 0){ %>
+                                                <td>Đang chờ duyệt</td>
+                                                <td><a style="color: black;" href="/deletegiohang/<%= o.id%>"><span>Hủy Mua Hàng</span></a></td>
+                                            <%}else{ %>
+                                                <td>Đã Thanh Toán</td>
+                                            <%}%>  
+                                            
+                                        
+                                            
+                                        </tr>
+                                    </tbody>
+                                         <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Người Nhận</th>
+                                                        <th>Phone</th>
+                                                        <th>Email</th>
+                                                        <th>Lời Nhắn</th>
+                                                        <th>Địa Chỉ Nhận Hàng</th>
+                                                       
+            
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                 
+                                                    <tr>
+                                                       
+                                                        <td><%= o.nguoinhan %></td>
+                                                        <td><%= o.phoneNumber %></td>
+                                                        <td><%= o.email %></td>
+                                                        <td><%= o.cart.loinhan %> VNĐ</td>
+                                                        <td><%= o.cart.address %> sản phẩm </td>
+                                                      
+                                                        
+                                                    </tbody>
+                                                        
+                                                    </tr>
+                                                  
+                                            </table>
+                                            <table id="example" class="display table table-hover table-condensed">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Name</th>
+                                                        <th>Hình</th>
+                                                        <th>Số Lượng</th>
+                                                        <th>Tiền</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% var idd=0 %>
+                                                        <% o.danhsachsanpham.forEach(function(it){idd++ %>
+                                                    <tr>
+                                                        <td><%=idd%></td>
+                                                        <td><%= it.item.name %></td>
+                                                        <td> <img src="/uploads/product/<%= it.item.images%>" width="150px" alt=""></td>
+                                                        <td><%= it.qty %></td>
+                                                        <td><%= it.price %> VNĐ</td>
+                                                      <%})%>
+                                                    </tr>
+                                                   
+                                                    <tr>
+                                                        <td colspan="5">
+                                                            <p><strong style="color:red">Tồng Tiền:<%= o.cart.totalPrice %></strong> VNĐ</p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                           
+                                </table>
+                                <% }) %>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    
+      <div class="footer">
+          <% include ../partials/footer %>
+      </div>
+      <script>
+          function myFunction() {
+                var x = document.getElementById("clikshow");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+      </script>
+  </body>
+  </html>

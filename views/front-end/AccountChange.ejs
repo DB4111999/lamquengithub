@@ -1,0 +1,95 @@
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <% include ../partials/head %>
+      <style>
+     button{
+         background-color: #ED1D24;
+         border: none;
+         color: #fff;
+         padding: 10px 15px;
+         width: 100%;
+
+     }
+     a {
+         font-weight: 600;
+         
+     }
+  
+      </style>
+  </head>
+  <body>
+      <div class="header">
+          <% include ../partials/header %>
+      </div>
+      <div class="profile-update pt-3">
+        <div class="container">
+            <div class="textheadrupdate ">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="/">Trang chủ</a><span><i class="fa fa-angle-right"
+                                aria-hidden="true"></i></span><label for="">Tài khoản của tôi</label>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <div>
+                            <a href="profile.html">
+                                <h5>TÀI KHOẢN CỦA TÔI</h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="text-updateprofile pt-3 pb-3 text-center" style=" font-weight: 600; font-size: 20px;">
+            CẬP NHẬT THÔNG TIN CÁ NHÂN
+        </div>
+        <div class="update-profile pt-3">
+            <div class="mainlogin pb-5 pt-5 ">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="login col-md-6 offset-md-3">
+                        <form method="POST"  enctype="multipart/form-data" >
+                            <div class="pb-3">
+                                <label for="uname">Họ và tên</label>
+                                <span class="required">*</span>
+                                <input type="text" value="<%= user.fullname%>" name="fullname" required>
+                                <label for="uname">Email</label>
+                                <span class="required">*</span>
+                                <input type="text"  readonly="" value="<%= user.email %>" name="email" required>
+                                <label for="uname">Số điện thoại</label>
+                                <span class="required">*</span>
+                                <input type="text" value="<%= user.phoneNumber%>" name="phoneNumber" required>
+                                <label for="uname">Địa chỉ</label>
+                                <span class="required">*</span>
+                                <input type="text" name="address" value="<%= user.address%>" required>
+                                <label for="uname">Hình ảnh</label>
+                                <span class="required">*</span>
+                                <input type="file" value="<%= user.images %>" name="images">
+                                <img style="height: 100px;" src="uploads/user/<%= user.images%>">
+
+
+                                <div><button type="submit">THAY ĐỔI</button></div>
+
+                            </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+    </div>
+    
+      <div class="footer">
+          <% include ../partials/footer %>
+      </div>
+  </body>
+  </html>

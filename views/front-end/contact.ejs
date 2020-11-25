@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+    <div class="header">
+        <% include ../partials/header %>
+    </div>
+    <div class="maincontact pt-5 pb-5">
+        <div class="container">
+            <div class="textheadrlogin">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="/">Trang chủ </a><span><i class="fa fa-angle-right"
+                                aria-hidden="true"></i></span><label for="">Liên hệ</label>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <div>
+                            <h5>LIÊN HỆ CHÚNG TÔI</h5>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="map-contact pt-5">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.352645149633!2d107.58582971434143!3d16.457671933283322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3141a14771646be3%3A0x2fd0ad0d9227d5b0!2zNzAgTmd1eeG7hW4gSHXhu4csIFbEqW5oIE5pbmgsIFRow6BuaCBwaOG7kSBIdeG6vywgVGjhu6thIFRoacOqbiBIdeG6vywgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1590655077250!5m2!1svi!2s"
+                width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+        <div class="container" style="max-width: 1300px;">
+            <div class="row">
+              
+                <div class="form-contact col-md-8 pt-5">
+                    <form action="" method="POST" onsubmit="return doComment(this)" >
+                    <h5>GÓP Ý CỦA KHÁCH HÀNG.</h5>
+                    <div class="text-form pt-5">
+                        <p style="font-style:italic;">Quý khách vui lòng điền góp ý của mình tại đây.</p>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <input type="text" placeholder="Email..." name="email" required></div>
+                            <div class="col-md-4">
+                                <input type="text" placeholder="Họ và tên..." name="HoTen" required>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" placeholder="Têu đề..." name="TieuDe" required>
+                            </div>
+                        </div>
+                        <input type="text" placeholder="Bình Luận"id="inputContent" name="BinhLuan" required style="height: 300px;">
+                        <button type="submit" class="btn btn-primary">Gửi Phản Hồi</button>
+                    </div>
+                </form>
+                </div>
+            
+                <div class="text-contact col-md-4 pt-5">
+                    <h5>LIÊN HỆ TRỰC TIẾP.</h5>
+                    <div class="text-addres pt-5">
+                        <h6 class="pb-2">ĐỊA CHỈ</h6>
+                        <p>70 Nguyễn Huệ - TP Huế - Việt Nam</p>
+                        <h6 class="pb-2">ĐIỆN THOẠI</h6>
+                        <p>+84 363 052 545 - 0967 438 042</p>
+                        <h6 class="pb-2">EMAIL</h6>
+                        <p>support@HDStore.com - HDStore.com</p>
+                        <h6 class="pb-2">GIỜ MỞ CỬA</h6>
+                        <p>Từ 8h00 - 22h00. Các ngày trong tuần</p>
+                        <h6 class="pb-2">THEO DÕI CHÚNG TÔI TẠI</h6>
+                    </div>
+                    <div class="icon">
+                        <p> <a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <% include ../partials/footer %>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('body').append('<div id="toTop"><i class="fa fa-angle-up" aria-hidden="true"></i></div>');
+            $(window).scroll(function() {
+                if ($(this).scrollTop() != 0) {
+                    $('#toTop').fadeIn();
+                } else {
+                    $('#toTop').fadeOut();
+                }
+            });
+            $('#toTop').click(function() {
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 1000);
+                return false;
+            });
+        });
+        function changeProductlist(type) {
+            document.getElementById(type).style.display = 'block';
+            switch (type) {
+
+                case 'myiphone':
+                    document.getElementById('myipad').style.display = 'none';
+                    document.getElementById('mymacbok').style.display = 'none';
+                    document.getElementById('mywatch').style.display = 'none';
+                    document.getElementById('myactive').style.display = 'none';
+                    document.getElementById('duoi5').style.display = 'none';
+                    document.getElementById('tu5den10').style.display = 'none';
+                    document.getElementById('tu10den20').style.display = 'none';
+                    document.getElementById('tren20').style.display = 'none';
+
+
+                    break;
+                case 'myipad':
+
+                    document.getElementById('myiphone').style.display = 'none';
+                    document.getElementById('mymacbok').style.display = 'none';
+                    document.getElementById('mywatch').style.display = 'none';
+                    document.getElementById('myactive').style.display = 'none';
+                    document.getElementById('duoi5').style.display = 'none';
+                    document.getElementById('tu5den10').style.display = 'none';
+                    document.getElementById('tu10den20').style.display = 'none';
+                    document.getElementById('tren20').style.display = 'none';
+                    break;
+                case 'mymacbok':
+
+                    document.getElementById('myipad').style.display = 'none';
+                    document.getElementById('myiphone').style.display = 'none';
+                    document.getElementById('mywatch').style.display = 'none';
+                    document.getElementById('myactive').style.display = 'none';
+                    document.getElementById('duoi5').style.display = 'none';
+                    document.getElementById('tu5den10').style.display = 'none';
+                    document.getElementById('tu10den20').style.display = 'none';
+                    document.getElementById('tren20').style.display = 'none';
+                    break;
+                case 'mywatch':
+                    document.getElementById('myipad').style.display = 'none';
+                    document.getElementById('myiphone').style.display = 'none';
+                    document.getElementById('mymacbok').style.display = 'none';
+                    document.getElementById('myactive').style.display = 'none';
+                    document.getElementById('duoi5').style.display = 'none';
+                    document.getElementById('tu5den10').style.display = 'none';
+                    document.getElementById('tu10den20').style.display = 'none';
+                    document.getElementById('tren20').style.display = 'none';
+                    break;
+                case 'duoi5':
+                    document.getElementById('myipad').style.display = 'none';
+                    document.getElementById('myiphone').style.display = 'none';
+                    document.getElementById('mymacbok').style.display = 'none';
+                    document.getElementById('myactive').style.display = 'none';
+                    document.getElementById('mywatch').style.display = 'none';
+                    document.getElementById('tu5den10').style.display = 'none';
+                    document.getElementById('tu10den20').style.display = 'none';
+                    document.getElementById('tren20').style.display = 'none';
+                    break;
+                case 'tu5den10':
+                    document.getElementById('myipad').style.display = 'none';
+                    document.getElementById('myiphone').style.display = 'none';
+                    document.getElementById('mymacbok').style.display = 'none';
+                    document.getElementById('myactive').style.display = 'none';
+                    document.getElementById('mywatch').style.display = 'none';
+                    document.getElementById('duoi5').style.display = 'none';
+                    document.getElementById('tu10den20').style.display = 'none';
+                    document.getElementById('tren20').style.display = 'none';
+                    break;
+                case 'tu10den20':
+                    document.getElementById('myipad').style.display = 'none';
+                    document.getElementById('myiphone').style.display = 'none';
+                    document.getElementById('mymacbok').style.display = 'none';
+                    document.getElementById('myactive').style.display = 'none';
+                    document.getElementById('mywatch').style.display = 'none';
+                    document.getElementById('duoi5').style.display = 'none';
+                    document.getElementById('tu5den10').style.display = 'none';
+                    document.getElementById('tren20').style.display = 'none';
+                    break;
+                case 'tren20':
+                    document.getElementById('myipad').style.display = 'none';
+                    document.getElementById('myiphone').style.display = 'none';
+                    document.getElementById('mymacbok').style.display = 'none';
+                    document.getElementById('myactive').style.display = 'none';
+                    document.getElementById('mywatch').style.display = 'none';
+                    document.getElementById('duoi5').style.display = 'none';
+                    document.getElementById('tu5den10').style.display = 'none';
+                    document.getElementById('tu10den20').style.display = 'none';
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

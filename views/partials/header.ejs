@@ -1,0 +1,122 @@
+<div class="header-top pt-2 pb-2">
+    <div class="container">
+        <div class="row">
+            <div class="header1 col-md-6">
+                <div class="email">
+                    <label>Email:</label>
+                    <a href="">HDstore.com</a>
+                </div>
+                <div class="lienhe">
+                    <label> Hotline: </label>
+                    <a href="#">+84 363 052 545</a>
+                </div>
+            </div>
+            <div class="header2 col-md-6 text-right">
+                <div class="language">
+                    <%if (typeof(user) !== 'undefined') { %>
+                        <a href="/logout"><button type="button" class="btn btn-outline-danger">ĐĂNG XUẤT</button></a>
+                    <% if(user.isAuthenticated) {%>
+                        <a href="/logout"><button type="button" class="btn btn-outline-danger">THANH TOÁN</button></a>
+                        <% } %>
+                        <% if(!user.isAuthenticated) {%>
+                            <a href="/verify-email"><button type="button" class="btn btn-outline-danger">Xác Thực Email</button></a>
+                        <% }} %>
+                      <%if(!user) { %>
+                    <a href="/login"><button type="button" class="btn btn-outline-danger">ĐĂNG NHẬP</button></a>
+                    <a href="/register"><button type="button" class="btn btn-outline-danger">ĐĂNG KÝ</button></a>
+                     <% } %>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="header-main">
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header col-md-3">
+                <a href="/"><img src="../images/logo1.png" alt="" style="width: 200px;" /></a>
+            </div>
+            <div class="col-md-6">
+                <form method="GET" action="/search">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="searchText" placeholder="Tìm kiếm sản phẩm..." />
+                    <div class="input-group-append">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+            <div class="icon-menu col-md-3">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <%if (typeof(user) !== 'undefined') { %>
+                        <a class="nav-link" href="/account"><i class="fa fa-user-o" aria-hidden="true"></i></a>
+                        <% } %>
+                        <%if(!user) { %>
+                            <a class="nav-link" href="/login"><i class="fa fa-user-o" aria-hidden="true"></i></a>
+                            <% } %>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                    </li>
+                    <div class="10" style="color: #fff; border: 1px solid ; border-radius: 50%; width: 25px; height: 25px; text-align: center;"><%= session.cart.numItems%></div>
+        
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="#"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="header-bottom pt-2 pb-2 ">
+    <div class="container">
+        <div class="row">
+            <div class="bottom1 pt-2 col-md-3 ">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a class="nav-link " href="#" data-toggle="dropdown" style="padding-left: 0;">
+                                <i class="fa fa-bars" aria-hidden="true" ></i> DANH MỤC SẢN PHẨM
+                            </a>
+                            <div class="dropdown-menu">
+                                    <% cates.forEach(function(cates){%>
+                                    <a class="dropdown-item" href="/getproductType/<%= cates._id%>"><%= cates.name%></a>
+                                   <%})%>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="bottom2 col-md-9  ">
+                <nav class="navbar navbar-expand-md navbar-light  sticky-top  " style="padding-left: 0;">
+                    <div class="container-fluid" style="padding: 0;">
+                        <button class="navbar-toggler " type="button" data-toggle="collapse"
+                            data-target="#navbarResponsive">
+                            <span><i class="fa fa-bars pl-1" aria-hidden="true"></i> MENU</span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarResponsive">
+                            <ul class="navbar-nav">
+                                <li class="nav-item mr-5"><a href="/" class="nav-link">trang chủ</a>
+                                </li>
+                                <li class="nav-item mr-5"><a href="/introduce" class="nav-link">giới
+                                        thiệu</a></li>
+                                <li class="nav-item mr-5"><a href="/showproduct" class="nav-link">sản
+                                        phẩm</a></li>
+                                <li class="nav-item mr-5"><a href="/accessories" class="nav-link">phụ kiện</a></li>
+                                <li class="nav-item mr-5"><a href="/technology" class="nav-link">công
+                                        nghệ</a></li>
+                                <li class="nav-item mr-5"><a href="/contact" class="nav-link">liên hệ</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>

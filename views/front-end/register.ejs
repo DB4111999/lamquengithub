@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+    <div class="header">
+        <% include ../partials/header %>
+    </div>
+    <div class="main">
+        <div class="mainlogin pb-5 pt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="login col-md-3">
+                        </div>
+                    <div class="login col-md-6 ">
+                        <div class="textlogin">
+                            <h4><b>ĐĂNG KÝ</b></h4>
+                        </div>
+                        <form action="/register" role="form" method="POST"  enctype="multipart/form-data" onSubmit="return checkblank(this)" class="modal-content animate">
+                            <% if (message.length > 0) { %>
+                                <div class="alert alert-danger"><%= message %></div>
+                            <% } %>
+                            <div class="container pt-3">
+                                <label for="uname"><b>Tài khoản:</b></label>
+                                <input type="text" placeholder="Tên tài khoản..." name="username" required>
+                                <label for="psw"><b>Mật khẩu:</b></label>
+                                <input type="password" placeholder="Mật khẩu..." name="password" required>
+                                <label for="psw"><b>Nhập lại mật khẩu:</b></label>
+                                <input type="password" placeholder="Nhập lại mật khẩu..." name="password2" required>
+                                <label for="psw"><b>Hình ảnh</b></label>
+                                <input type="file" name="images" multiple id="input-many-files" class="form-control-file border" required>
+                                <label for="psw"><b>Họ và tên:</b></label>
+                                <input type="text" placeholder="Họ và tên..." name="fullname" required>
+                                <label for="psw"><b>Địa chỉ:</b></label>
+                                <input type="text" placeholder="Địa chỉ..." name="address" required>
+                                <label for="psw"><b>Email:</b></label>
+                                <input type="text" placeholder="Email" name="email" required>
+                                <label for="psw"><b>Số điện thoại:</b></label>
+                                <input type="text" placeholder="Số Điện Thoại..." name="phoneNumber" required>
+                                <button type="submit">Đăng ký</button>
+                                <label>
+                                    <input type="checkbox" checked="checked" name="remember"> Đồng ý điều khoản đăng ký.
+                                </label>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-5">
+                        <div class="textlogin pt-5">
+                            <h4>ĐĂNG NHẬP BẰNG</h4>
+                            <div class="icon-login">
+                                <ul class="nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"><i class="fa fa-facebook-official"
+                                            aria-hidden="true"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3"></div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="footer">
+        <% include ../partials/footer %>
+    </div>
+    <script>
+        //srcoll-to-top
+        $(document).ready(function() {
+            $('body').append('<div id="toTop"><i class="fa fa-angle-up" aria-hidden="true"></i></div>');
+            $(window).scroll(function() {
+                if ($(this).scrollTop() != 0) {
+                    $('#toTop').fadeIn();
+                } else {
+                    $('#toTop').fadeOut();
+                }
+            });
+            $('#toTop').click(function() {
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 1000);
+                return false;
+            });
+        });
+        //slide
+    </script>
+</body>
+</html>

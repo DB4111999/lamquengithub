@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+    <div class="header">
+        <% include ../partials/header %>
+    </div>
+    <div class="main">
+        <div class="mainlogin pb-5 pt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="login col-md-3">
+                        </div>
+                    <div class="login col-md-6 ">
+                        <div class="textlogin">
+                            <h4><b>ĐĂNG NHẬP</b></h4>
+                        </div>
+                        <form action="/login" method="POST">
+                            <% if (message.length > 0) { %>
+                                <div class="alert alert-danger"><%= message %></div>
+                            <% } %>
+                            <div class="pt-3 pb-3">
+            
+                                <label for="uname">Tên đăng nhập hoặc địa chỉ email</label>
+                                <span class="required">*</span>
+                                <input type="text" name="username" required>
+                                <label for="psw">Mật khẩu</label>
+                                <span class="required">*</span>
+                                <input type="password" name="password" required>
+                                <label>
+                                <input type="checkbox" checked="checked" name="remember"> Lưu đăng nhập
+                            </label>
+                                <div><button type="submit">ĐĂNG NHẬP</button></div>
+                            </div>
+                            <div class="qpass"><a href="/forgotpassword">Quên mật khẩu?</a></div>
+                        </form>
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-5">
+                        <div class="textlogin pt-5">
+                            <h4>ĐĂNG NHẬP BẰNG</h4>
+                            <div class="icon-login">
+                                <ul class="nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/auth/facebook"><i class="fa fa-facebook-official"
+                                            aria-hidden="true"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/auth/google"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3"></div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="footer">
+        <% include ../partials/footer %>
+    </div>
+    <script>
+        //srcoll-to-top
+        $(document).ready(function() {
+            $('body').append('<div id="toTop"><i class="fa fa-angle-up" aria-hidden="true"></i></div>');
+            $(window).scroll(function() {
+                if ($(this).scrollTop() != 0) {
+                    $('#toTop').fadeIn();
+                } else {
+                    $('#toTop').fadeOut();
+                }
+            });
+            $('#toTop').click(function() {
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 1000);
+                return false;
+            });
+        });
+        //slide
+    </script>
+</body>
+</html>

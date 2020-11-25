@@ -1,0 +1,109 @@
+ <div class="page-sidebar pagescroll">
+                <!-- MAIN MENU - START -->
+                <div class="page-sidebar-wrapper" id="main-menu-wrapper">
+                    <!-- USER INFO - START -->
+                        <div class="profile-info row">
+                            <div class="profile-image col-xs-4">
+                                <a href="/account">
+                                <img alt=""  src="../uploads/user/<%=user.images%>" class="img-responsive img-circle avatar">
+                                </a>
+                            </div>
+                            <div class="profile-details col-xs-8">
+                                <h3>
+                                    <a href="/account" class="name"><%= user.fullname%></a>
+                                    <!-- Available statuses: online, idle, busy, away and offline -->
+                                    <span class="profile-status online"></span>
+                                </h3>
+                                <% PhanQuyen.forEach(function(pq){%>
+                                <p class="profile-title"><%= pq.TenQuyen%></p>
+                                <%})%>
+                            </div>
+                        </div>
+                    <!-- USER INFO - END -->
+                    <ul class='wraplist'>
+                        <a href="/logout"><li style="color: black;" class='menusection'>Đăng Xuất</li></a>
+                        
+                        <li class="open"> 
+                            <a href="./all">
+                            <i class="fa fa-dashboard"></i>
+                            <span class="title">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="javascript:;">
+                            <i class="fa fa-suitcase"></i>
+                            <span class="title">Loại Sản Phẩm</span>
+                            <span class="arrow "></span>
+                            </a>
+                            <ul class="sub-menu" >
+                                <li>
+                                    <a class="" href="./getcateall"  >Danh Sách</a>
+                                </li>
+                                <li>
+                                    <a class="" href="./getcateadd"  >Thêm</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="">
+                            <a href="javascript:;">
+                            <i class="fa fa-suitcase"></i>
+                            <span class="title">Thành Viên</span>
+                            <span class="arrow "></span>
+                            </a>
+                            <ul class="sub-menu" >
+                                <li>
+                                    <a class="" href="./getuserall"  >Danh Sách</a>
+                                </li>
+                                <li>
+                                    <a class="" href="./getuseradd"  >Thêm</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="">
+                            <a href="javascript:;">
+                            <i class="fa fa-suitcase"></i>
+                            <span class="title">Sản Phẩm</span>
+                            <span class="arrow "></span>
+                            </a>
+                            <ul class="sub-menu" >
+                                <li>
+                                    <a class="" href="./getproductall"  >Danh Sách</a>
+                                </li>
+                                <li>
+                                    <a class="" href="./getproductadd"  >Thêm</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="javascript:;">
+                            <i class="fa fa-suitcase"></i>
+                            <span class="title">Đơn Hàng</span>
+                            <span class="arrow "></span>
+                            </a>
+                            <ul class="sub-menu" >
+                                <li>
+                                    <a class="" href="./getcartall"  >Danh Sách</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="">
+                            <a href="javascript:;">
+                            <i class="fa fa-suitcase"></i>
+                            <span class="title">Nhà Cung Cấp</span>
+                            <span class="arrow "></span>
+                            </a>
+                            <ul class="sub-menu" >
+                                <li>
+                                    <a class="" href="./getnccall"  >Danh Sách</a>
+                                </li>
+                                <li>
+                                    <a class="" href="./getnccadd"  >Thêm</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- MAIN MENU - END -->
+            </div>

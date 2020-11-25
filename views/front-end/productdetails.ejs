@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+    <div class="header">
+        <% include ../partials/header %>
+    </div>
+    <div class="mainproductdetails  pt-5 pb-5">
+        <div class="product1">
+            <div class="container ">
+                <div class="textheadrlogin">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a href="/">Trang chủ </a><span><i class="fa fa-angle-right"
+                                    aria-hidden="true"></i></span><label for="">Chi tiết sản phẩm</label>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <div>
+                                <h5>CHI TIẾT SẢN PHẨM</h5>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="container-fliud">
+                        <div class="wrapper row">
+                            <div class="preview col-md-6">
+                                <div class="preview-pic tab-content text-center pt-4 pb-4 pl-4 pr-4">
+                                    <div class="tab-pane active" id="pic-1"><img src="../uploads/product/<%=product.images%>" alt="">
+                                    </div>
+                                    <div class="tab-pane" id="pic-2"><img src="../images/ip11prgold.png" alt="">
+                                    </div>
+                                    <div class="tab-pane" id="pic-3"><img src="../images/iphonepromax.png" alt="">
+                                    </div>
+                                    <div class="tab-pane" id="pic-5"><img src="../images/ip11problack.png" alt="">
+                                    </div>
+                                    <div class="tab-pane" id="pic-4"><img src="../images/ip11prgold.png" alt="">
+                                    </div>
+                                </div>
+                                <ul class="preview-thumbnail nav nav-tabs ">
+                                    <li class="active">
+                                        <a data-target="#pic-1" data-toggle="tab"><img src="../images/iphone111.png" alt=""></a>
+                                    </li>
+                                    <li>
+                                        <a data-target="#pic-2s" data-toggle="tab"><img src="../images/ip11gold.png" alt=""></a>
+                                    </li>
+                                    <li>
+                                        <a data-target="#pic-3" data-toggle="tab"><img src="../images/ip.png" alt=""></a>
+                                    </li>
+                                    <li>
+                                        <a data-target="#pic-5" data-toggle="tab"><img src="../images/ip11silve.png" alt=""></a>
+                                    </li>
+                                    <li>
+                                        <a data-target="#pic-4" data-toggle="tab"><img src="../images/iphone111.png" alt=""></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="details col-md-6">
+                                <h3 class="product-title"><%= product.name%></h3>
+                                <h4 class="price pt-3 pb-2">Giá bán: <%= product.price%>₫</h4>
+                                <div class="rating">
+                                    <div class="stars"> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span>
+                                        <a href="#">
+                                        <%= allComment%> đánh giá
+                                    </a>
+                                </br><span>Lượt xem: <%=viewCounts %></span>
+                            </br><span>Số lượng:</span> <%= product.stock %>
+                                    </div>
+                                </div>
+                                
+                                <p class="product-description pb-3"><%= product.description%></p>
+                                <h6 class="sizes pt-1">Màu sắc:
+                                    <a href="#"><span class="size" data-toggle="tooltip" title="Vàng"><%= product.color%></span></a>
+                   
+                                </h6>
+                                <h6 class="capacitys pt-1">Dung lượng:
+                                    <a href="#"><span class="capacity" data-toggle="tooltip" title="32GB">32GB</span></a>
+                                    <a href="#"><span class="capacity" data-toggle="tooltip" title="128GB">128GB</span></a>
+                                    <a href="#"><span class="capacity" data-toggle="tooltip" title="256GB">256GB</span></a>
+                                </h6>
+                                <% if(product.stock == 0){ %>
+                                    <div class="action pt-4">
+                                        <button class="add-to-cart btn btn-default" type="button">HẾT HÀNG</button> 
+                                    </div>
+                                <%}else{ %>
+                                    <div class="action pt-4">
+                                        <a href="../add-to-cart/<%=product.id%>"><button class="add-to-cart btn btn-default" type="button">THÊM VÀO GIỎ HÀNG</button> </a>
+                                    </div>
+                                <%}%>  
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product2">
+            <div class="container">
+                <div class="gioithieusp">
+                    <div class="woocommerce-tabs wc-tabs-wrapper  pt-5">
+                        <div class="container" style="max-width:1300px; padding-left: 120px;">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li id="tab-title-description" role="tab" aria-controls="tab-description">
+                                    <a class="nav-link active" data-toggle="tab" href="#tab-description">mô tả</a>
+                                </li>
+                                <li id="tab-title-additional_information" role="tab" aria-controls="tab-additional_information">
+                                    <a class="nav-link" data-toggle="tab" href="#tab-additional_information">Thông tin thêm</a>
+                                </li>
+                                <li id="tab-title-reviews" role="tab" aria-controls="tab-reviews">
+                                    <a class="nav-link" data-toggle="tab" href="#tab-reviews">đánh giá</a>
+                                </li>
+                                <li id="tab-title-seller" role="tab" aria-controls="tab-seller">
+                                    <a class="nav-link" data-toggle="tab" href="#tab-seller">Thông tin nhà cung cấp</a>
+                                </li>
+                                <li id="tab-title-more_seller_product" role="tab" aria-controls="tab-more_seller_product">
+                                    <a class="nav-link" data-toggle="tab" href="#tab-more_seller_product">sản phẩm khác</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div class="woocommerce-Tabs-panel tab-pane active pt-5" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description">
+                                <p><%= product.description%></p>
+                                <h5>Tính năng mới.</h5>
+                                <ul>
+                                    <li><i class="fa fa-check" aria-hidden="true"></i> <%= product.TinhNangMoi.t1%></li>
+                                    <li><i class="fa fa-check" aria-hidden="true"></i> <%= product.TinhNangMoi.t2%></li>
+                                    <li><i class="fa fa-check" aria-hidden="true"></i> <%= product.TinhNangMoi.t3%>.</li>
+                                    <li><i class="fa fa-check" aria-hidden="true"></i> <%= product.TinhNangMoi.t4%>.</li>
+                                    <li><i class="fa fa-check" aria-hidden="true"></i> <%= product.TinhNangMoi.t5%></li>
+                                </ul>
+                                <h5>Phụ kiện đi kèm</h5>
+                                <ul>
+                                    <li><i class="fa fa-check" aria-hidden="true"></i> <%= product.PhuKienDiKem.p1%></li>
+                                    <li><i class="fa fa-check" aria-hidden="true"></i> <%= product.PhuKienDiKem.p2%></li>
+                                    <li><i class="fa fa-check" aria-hidden="true"></i> <%= product.PhuKienDiKem.p3%></li>
+                                    <li><i class="fa fa-check" aria-hidden="true"></i> <%= product.PhuKienDiKem.p4%>.</li>
+                                    <li><i class="fa fa-check" aria-hidden="true"></i> <%= product.PhuKienDiKem.p5%></li>
+                                </ul>
+                            </div>
+                            <div class="woocommerce-Tabs-panel2 pt-5 woocommerce-Tabs-panel--additional_information panel entry-content wc-tab tab-pane fade" id="tab-additional_information" role="tabpanel" aria-labelledby="tab-title-additional_information">
+                                <div class="row">
+                                    <div class="clip col-md-6">
+                                        <h5>video giới thiệu sản phẩm</h5>
+                                        <iframe class="pt-4" width="100%" height="450" src="<%= product.thongtin.video%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                    <div class="thongso col-md-6">
+                                        <h5>Chức năng chính của <%=product.name %></h5>
+                                        <div class="thongsochinh pt-4 ">
+                                            <p><label for="">Hãng sản xuất:</label> <%=product.thongtin.HangSanXuat%></p>
+                                            <p><label for="">Kích thước màn hình:</label> <%=product.thongtin.KichThuocManHinh%></p>
+                                            <p><label for="">Độ phân giải màn hình:</label> <%=product.thongtin.DoPhanGiaiManHinh%></p>
+                                            <p><label for="">Hệ điều hành:</label> <%=product.thongtin.HeDieuHanh%></p>
+                                            <p><label for="">Chip xử lý (CPU):</label> <%=product.thongtin.ChipXuLy%></p>
+                                            <p><label for="">RAM:</label> <%=product.thongtin.Ram%></p>
+                                            <p><label for="">Máy ảnh chính:</label> <%=product.thongtin.MayAnh%></p>
+                                            <p><label for="">Bộ nhớ trong:</label> <%=product.thongtin.BoNhoTrong%></p>
+                                        </div>
+                                        <p><label for="">Dung lượng pin (mAh):</label> <%=product.thongtin.DungLuongPin%></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="woocommerce-Tabs-panel1 pt-5 tab-pane fade " id="tab-reviews" role="tabpanel" aria-labelledby="tab-title-reviews">
+                                <div class="row">
+                                    <div class="review1 col-md-6">
+                                        <h5>ĐÁNH GIÁ</h5>
+                                      
+                                        <% if(comments.length > 0){ %>
+                                        <% comments.forEach(function(cmt){ %>
+                                            <div class="tt-item">
+                                                <div class="tt-avatar">
+                                                    <a href="/#"><img src="" alt=""></a>
+                                                </div>
+                                                <div class="tt-content">
+                                                    <div class="tt-star">
+                                                        Đánh giá:
+                                                        <% var i = 0;for(i; i < cmt.star; i++) {%>
+                                                           <i class="fa fa-star" style="color: #FD4;" aria-hidden="true"></i>
+                                                        <% } %>
+                                                        <% i = 5 - i; while(i--){%>
+                                                    
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <% } %>
+                                                    </div>
+                                                    <div class="tt-comments-info">
+                                                        <span class="username">bởi <span><%= cmt.name %></span></span>
+                                                        <span class="time">on <%= cmt.date %></span><br>
+                                                       
+                                                    </div>
+                                                    <div class="tt-comments-title"><%= cmt.title %></div>
+                                                    <p><%= cmt.content %>													</p>
+                                                </div>
+                                            </div>
+                                            <%})%>
+                                            <% }else{ %>
+                                                <p class="pt-3">Hiện tại không có đánh giá nào.</p>
+                                            <%}%>
+                                    </div>
+                                    <div class="review2 col-md-6">
+                                        
+                                        <form action="" method="POST" onsubmit="return doComment(this)">
+                                            <h5>HÃY LÀ NGƯỜI ĐẦU TIÊN ĐÁNH GIÁ SẢN PHẨM NÀY</h5>
+                                            <p class="pt-3">Quý khách vui lòng điền đánh giá ở đây*</p>
+                                            <div class="stars">
+                                                    <input class="star star-5" id="star-5" value="5" type="radio" name="star" />
+                                                    <label class="star star-5" for="star-5"></label>
+                                                    <input class="star star-4" id="star-4" value="4" type="radio" name="star" />
+                                                    <label class="star star-4" for="star-4"></label>
+                                                    <input class="star star-3" id="star-3" value="3" type="radio" name="star" />
+                                                    <label class="star star-3" for="star-3"></label>
+                                                    <input class="star star-2" id="star-2" value="2" type="radio" name="star" />
+                                                    <label class="star star-2" for="star-2"></label>
+                                                    <input class="star star-1" id="star-1" value="1" type="radio" name="star" />
+                                                    <label class="star star-1" for="star-1"></label>
+                                                    <p class="pt-2">Đánh giá:</p>
+                                            </div>
+                                            <div class="row">
+                                                <%if (typeof(user) === 'undefined') { %>
+                                                <div class="acc col-md-6">
+                                                   
+                                                    <input type="text" id="inputName" name="inputName" placeholder="Họ và tên..." name="name" required>
+                                                </div>
+                                                <% } %>
+                                                <div class="ten col-md-6">
+                                                    <input type="text" placeholder="Tiêu Đề"id="inputTitle" name="inputTitle" required>
+                                                </div>
+                                            </div>
+                                            <input type="text" placeholder="Bình Luận"id="inputContent" name="inputContent" required style="height: 300px;">
+                                            <div class="form-group">
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn">Đánh giá</button>
+                                                </div>
+                                            
+                                        
+                                        </div>
+                                    </form>
+                                    </div>
+                                </div>
+                            </div>
+             
+                            <div class="woocommerce-Tabs-panel3 pt-5 tab-pane fade woocommerce-Tabs-panel--seller panel entry-content wc-tab" id="tab-seller" role="tabpanel" aria-labelledby="tab-title-seller">
+                                <h5>THÔNG TIN NHÀ CUNG CẤP</h5>
+                                <div class="congty" style="display: flex;">
+                                    <ul class="list-unstyled pt-3">
+                                        <li class="store-name">
+                                            <i class="fa fa-check" aria-hidden="true"></i>
+                                            <span>Công ty:</span>
+                                            <span class="details">
+                               <%= product.NhaCungCap.CongTy%> </span></li>
+                                        <li class="seller-name">
+                                            <i class="fa fa-check" aria-hidden="true"></i>
+                                            <span>
+                                Nhà cung cấp: </span><span class="details">
+                                    <%= product.NhaCungCap.CongTy%>  </span></li>
+                                        <li class="store-address">
+                                            <i class="fa fa-check" aria-hidden="true"></i>
+                                            <span>Địa chỉ:</span>
+                                            <span class="details">
+                                                <%= product.NhaCungCap.DiaChi%>  </span></li>
+                                        <li class="telephone">
+                                            <i class="fa fa-check" aria-hidden="true"></i>
+                                            <span>Điện thoại:</span>
+                                            <span class="details">
+                                                <%= product.NhaCungCap.Phone%> </span></li>
+                                        <li class="email">
+                                            <i class="fa fa-check" aria-hidden="true"></i>
+                                            <span>Website:</span>
+                                            <span class="details">
+                                                <%= product.NhaCungCap.website%> </span></li>
+                                        <li class="clearfix">
+                                            <i class="fa fa-check" aria-hidden="true"></i>
+                                            <span class="seller-rating">
+                                <span class="star-rating">                              
+                                    <span>Chuyên phân phối: </span>
+                                            <span class="text"> <%= product.NhaCungCap.PhanPhoi%>.</span></li>
+                                        </span>
+                                    </ul>
+                                 
+
+                                </div>
+                            </div>
+                            <div class="woocommerce-Tabs-panel4 pt-5 tab-pane fade woocommerce-Tabs-panel--more_seller_product panel entry-content wc-tab" id="tab-more_seller_product" role="tabpanel" aria-labelledby="tab-title-more_seller_product">
+                                <div class="row">
+                                    <% other.forEach(function(other) { %>
+                                    <div class="col-md-4 col-sm-6 ">
+                                        <div class="products">
+                                            <div class="thumbnail pt-4 pb-4 ">
+                                                <a href="/getproductdetails/<%= other._id%>"><img src="../uploads/product/<%= other.images %>" class="pt-4" width="100%" alt="Product Name"></a>
+                                            </div>
+                                            <div class="productname pt-2 pb-5 pl-4 text-left">
+                                                <div class="stars pt-3 pb-3">
+                                                    <i class="fa fa-star" style="color: #FD4;" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" style="color: #FD4;" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" style="color: #FD4;" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" style="color: #FD4;" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                </div>
+                                                <a href="/getproductdetails/<%= other._id%>">
+                                                    <h5><%= other.name%></h5>
+                                                </a>
+                                            </div>
+                                            <h4 class="price text-left  pl-4 pb-3"><b>12.990.000₫</b> </h4>
+                                        </div>
+                                    </div>
+                                    <% })%>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relatedproduct pt-5 pb-5">
+                        <h3 class="pb-5">
+                            NHỮNG SẢN PHẨM LIÊN QUAN</h3>
+                        <div class="row">
+                            <% relatedProducts.forEach(function(prod) { %>
+                            <div class="col-md-3 col-sm-6 ">
+                                <div class="products">
+                                    <div class="thumbnail pt-4 pb-4 ">
+                                        <a href="/getproductdetails/<%= prod._id%>"><img src="../uploads/product/<%= prod.images %>" class="pt-4" width="100%" alt="Product Name"></a>
+                                    </div>
+                                    <div class="productname pt-4 pb-5 pl-4 text-left">
+
+                                        <a href="/getproductdetails/<%= prod._id%>">
+                                            <h5><%= prod.name %></h5>
+                                        </a>
+                                    </div>
+                                    <h4 class="price text-left  pl-4 pb-3"><b><%=prod.price%></b></h4>
+                                </div>
+                            </div>
+                            <%})%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="footer">
+        <% include ../partials/footer %>
+    </div>
+    <script>
+        //<![CDATA[
+        $('input.input-qty').each(function() {
+                var $this = $(this),
+                    qty = $this.parent().find('.is-form'),
+                    min = Number($this.attr('min')),
+                    max = Number($this.attr('max'))
+                if (min == 0) {
+                    var d = 0
+                } else d = min
+                $(qty).on('click', function() {
+                    if ($(this).hasClass('minus')) {
+                        if (d > min) d += -1
+                    } else if ($(this).hasClass('plus')) {
+                        var x = Number($this.val()) + 1
+                        if (x <= max) d += 1
+                    }
+                    $this.attr('value', d).val(d)
+                })
+            })
+            //]]>
+            //srcoll-to-top
+        $(document).ready(function() {
+            $('body').append('<div id="toTop"><i class="fa fa-angle-up" aria-hidden="true"></i></div>');
+            $(window).scroll(function() {
+                if ($(this).scrollTop() != 0) {
+                    $('#toTop').fadeIn();
+                } else {
+                    $('#toTop').fadeOut();
+                }
+            });
+            $('#toTop').click(function() {
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 1000);
+                return false;
+            });
+        });
+    </script>
+    </script>
+</body>
+</html>

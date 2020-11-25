@@ -1,0 +1,89 @@
+<% include ../playout/head %>
+        <!-- END TOPBAR -->
+        <!-- START CONTAINER -->
+        <div class="page-container row-fluid container-fluid">
+            <% include ../playout/menu.ejs %>
+            <!--  SIDEBAR - END -->
+            <!-- START CONTENT -->
+            <section id="main-content" class=" ">
+                <section class="wrapper main-wrapper row">
+                    <div class='col-xs-12'>
+                        <div class="page-title">
+                            <div class="pull-left">
+                                <h1 class="title">Danh Sách Thành Viên</h1>
+                            </div>
+                            <div class="pull-right hidden-xs">
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-lg-12">
+                        <section class="box ">
+                            <header class="panel_header">
+                                <h2 class="title pull-left">All Thành Viên</h2>
+                                <div class="actions panel_actions pull-right">
+                                    <a class="box_toggle fa fa-chevron-down"></a>
+                                    <a class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></a>
+                                    <a class="box_close fa fa-times"></a>
+                                </div>
+                            </header>
+                            <div class="content-body">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <table id="example" class="display table table-hover table-condensed">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Tên đăng nhập</th>
+                                                    <th>Họ và tên</th>
+                                                    <th>email</th>
+                                                    <th>Địa Chỉ</th>
+                                                    <th>Số Điện Thoại</th>
+                                                    <th>Chức vụ</th>
+                                                    <th>Đã xác nhận</th>
+                                                    <th>Hoạt động</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% var id = 0 %>
+                                                <% prouser.forEach(function(users){ id ++%>
+                                                <tr>
+                                                    <td><%= id%></td>
+                                                    <td><%= users.username%></td>
+                                                    <td><%= users.fullname%></td>
+                                                    <td><%= users.email%></td>
+                                                    <td><%= users.address%></td>
+                                                    <td><%= users.phoneNumber%></td>
+                                                    
+                                                    <td><%= users.PhanQuyen.TenQuyen%></td>
+                                                    <td><%= users.isAuthenticated%></td>
+                                                  
+                                                  
+                                                   
+                                                    <td>
+                                                        <a href="./deleteuser/<%= users._id %>">Xoá</a> | 
+                                                        <a href="./getuserupdate/<%= users._id %>">Sửa</a>
+                                                    </td>
+                                                </tr>
+                                                <%})%>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </section>
+            <!-- END CONTENT -->
+            <div class="chatapi-windows ">
+
+            </div>
+
+<% include ../playout/footer.ejs %>
+            <script src="TT_Admin/assets/plugins/datatables/js/jquery.dataTables.min.js" type="text/javascript"></script>
+            <script src="TT_Admin/assets/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js" type="text/javascript"></script>
+            <script src="TT_Admin/assets/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js" type="text/javascript"></script>
+            <script src="TT_Admin/assets/plugins/datatables/extensions/Responsive/bootstrap/3/dataTables.bootstrap.js" type="text/javascript"></script>
